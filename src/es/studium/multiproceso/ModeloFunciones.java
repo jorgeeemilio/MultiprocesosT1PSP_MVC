@@ -7,23 +7,17 @@ import java.io.InputStreamReader;
 
 public class ModeloFunciones
 {
-	private String comand;
 	
-	public ModeloFunciones() {
-			
-			setDir("");
-				}
-		public ModeloFunciones(String dr) {
-			
-			this.setDir(dr);
-			
-				}
+	
+	public ModeloFunciones() {}
+	
 		public String lanzarComando(String comando) {
 			
-			
-			String cmd = "cmd /c "+ comand + comando;
+			String comand="";
+			String cmd = "cmd /c " + comando;
 			try
 			{
+				
 				Process process = Runtime.getRuntime().exec(cmd);
 				// Flujo de entrada(padre) para la salida estándar (hijo)
 				InputStream is = process.getInputStream();
@@ -37,7 +31,7 @@ public class ModeloFunciones
 				{
 					comand=comand+line+"\n";
 				}
-				
+//				long pidEjecutar =  process.pid();
 				is.close();
 			}
 			catch (IOException e)
@@ -48,12 +42,5 @@ public class ModeloFunciones
 			return comand;
 			}
 		
-		public String getDir()
-		{
-			return comand;
-		}
-		public void setDir(String dir)
-		{
-			this.comand = dir;
-		}
+		
 }
