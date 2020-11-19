@@ -7,18 +7,16 @@ import java.io.InputStreamReader;
 
 public class ModeloFunciones
 {
-	
-	
-	public ModeloFunciones() {}
-	
+		String path = "c:\\users\\david.info\\";
 		public String lanzarComando(String comando) {
 			
 			String comand="";
-			String cmd = "cmd /c " + comando;
+			String cmdExe = "cmd /c "+comando;
+			//String cmd = "cmd /c " + comando;
 			try
 			{
 				
-				Process process = Runtime.getRuntime().exec(cmd);
+				Process process = Runtime.getRuntime().exec(cmdExe);
 				// Flujo de entrada(padre) para la salida estándar (hijo)
 				InputStream is = process.getInputStream();
 				// Flujo de lectura para esa entrada

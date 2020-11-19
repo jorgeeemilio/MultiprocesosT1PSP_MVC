@@ -32,6 +32,7 @@ public class VistaInterfaz extends JFrame
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
+	
 	private JButton btnPaint;
 	private JButton btnProgGestin;
 	private JButton btnJuegAjedrez;
@@ -41,30 +42,30 @@ public class VistaInterfaz extends JFrame
 	private JTextArea txtArea;
 	private JButton btnTerminar;
 	private JButton btnEjecutar;
-	private static VistaInterfaz frame=null;
+//	private static VistaInterfaz frame=null;
 
 	/**
 	 * Launch the application.
 	 */
-	public void main(String[] args)
-	{
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					frame = new VistaInterfaz();
-					frame.setVisible(true);
-				} catch (Exception e)
-				{
-					
-					e.printStackTrace();
-					System.err.println("entra en el catch de la excepcion :(");
-				}
-			}
-		});
-	}
+//	public void main(String[] args)
+//	{
+//		EventQueue.invokeLater(new Runnable()
+//		{
+//			public void run()
+//			{
+//				try
+//				{
+//					frame = new VistaInterfaz();
+//					frame.setVisible(true);
+//				} catch (Exception e)
+//				{
+//					
+//					e.printStackTrace();
+//					System.err.println("entra en el catch de la excepcion :(");
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
@@ -79,13 +80,13 @@ public class VistaInterfaz extends JFrame
 		setContentPane(contentPane);
 		
 		btnEjecutar = new JButton("Ejecutar");
-		add(btnEjecutar);
+		
 		
 		textField = new JTextField();
 		textField.setForeground(Color.WHITE);
 		textField.setBackground(SystemColor.desktop);
 		textField.setColumns(10);
-		add(textField);
+		
 		
 		JButton btnNewButton_1 = new JButton("Bloc de Notas");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -94,7 +95,7 @@ public class VistaInterfaz extends JFrame
 		});
 		
 		btnPaint = new JButton("Paint");
-		
+				
 		btnProgGestin = new JButton("Prog. Gesti\u00F3n");
 		
 		btnJuegAjedrez = new JButton("Jueg. Ajedrez");
@@ -104,6 +105,7 @@ public class VistaInterfaz extends JFrame
 		scrollPane = new JScrollPane();
 		
 		btnTerminar = new JButton("Terminar");
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -195,6 +197,7 @@ public class VistaInterfaz extends JFrame
 		table.getColumnModel().getColumn(1).setPreferredWidth(167);
 		scrollPane_1.setViewportView(table);
 		contentPane.setLayout(gl_contentPane);
+		setVisible(true);
 	}
 
 	public JButton getBtnPaint()
@@ -275,6 +278,26 @@ public class VistaInterfaz extends JFrame
 	public void setTable(JTable table)
 	{
 		this.table = table;
+	}
+
+	public JScrollPane getScrollPane_1()
+	{
+		return scrollPane_1;
+	}
+
+	public void setScrollPane_1(JScrollPane scrollPane_1)
+	{
+		this.scrollPane_1 = scrollPane_1;
+	}
+
+	public JScrollPane getScrollPane()
+	{
+		return scrollPane;
+	}
+
+	public void setScrollPane(JScrollPane scrollPane)
+	{
+		this.scrollPane = scrollPane;
 	}
 	
 

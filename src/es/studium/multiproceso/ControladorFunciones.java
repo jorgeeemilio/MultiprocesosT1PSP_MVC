@@ -22,15 +22,15 @@ public class ControladorFunciones implements WindowListener, ActionListener
 		
 	
 		//Listeners de los objetos del interfaz
-
 		
-		vint.getTextField().addActionListener(this);
+		
 		vint.getBtnPaint().addActionListener(this);
 		vint.getBtnProgGestin().addActionListener(this);
 		vint.getBtnJuegAjedrez().addActionListener(this);
 		vint.getBtnTerminar().addActionListener(this);
 		vint.getBtnEjecutar().addActionListener(this);
 		vint.getTextField().addActionListener(this);
+		
 		
 	}
 
