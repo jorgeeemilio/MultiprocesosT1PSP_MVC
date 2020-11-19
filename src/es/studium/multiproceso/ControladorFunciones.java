@@ -2,21 +2,11 @@ package es.studium.multiproceso;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.HierarchyEvent;
-import java.awt.event.HierarchyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
-
-
-public class ControladorFunciones implements WindowListener, ActionListener, HierarchyListener
+public class ControladorFunciones implements WindowListener, ActionListener
 {
 	VistaInterfaz vint = null;
 	ModeloFunciones mfun = null;
@@ -25,35 +15,41 @@ public class ControladorFunciones implements WindowListener, ActionListener, Hie
 	{
 		this.vint = vint;
 		this.mfun = mfun;
+		
 		//Escuchador de la ventana VistaInterfaz
 		vint.addWindowListener(this);
-		//Herencias de contenedores
-		vint.getContentPane().addHierarchyListener(this);
-		vint.getScrollPane().addHierarchyListener(this);
-		vint.getScrollPane_1().addHierarchyListener(this);
-		vint.getTable().addHierarchyListener(this);
-		vint.getTxtrTxtarea().addHierarchyListener(this);
+		
+		
+	
 		//Listeners de los objetos del interfaz
 
+		
 		vint.getTextField().addActionListener(this);
 		vint.getBtnPaint().addActionListener(this);
 		vint.getBtnProgGestin().addActionListener(this);
 		vint.getBtnJuegAjedrez().addActionListener(this);
 		vint.getBtnTerminar().addActionListener(this);
-		vint.getBtnEjecutar().addActionListener(this);;
+		vint.getBtnEjecutar().addActionListener(this);
+		vint.getTextField().addActionListener(this);
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		Object focus;
-		focus = e.getSource();
 		
-		if (focus.equals(vint.getBtnEjecutar())) {
+		Object pulsar = e.getSource();
+		
+		if (pulsar.equals(vint.getBtnEjecutar())) {
 			
-			//Lanzamos la función lanzarComando
+			System.out.println("hola");
+			System.out.println(vint.getTextField().getText().toString());
 			
-			mfun.lanzarComando(vint.getTextField().toString());
+			String comando = vint.getTextField().getText().toString();
+			String texto =  mfun.lanzarComando(comando);
+			
+			vint.getTxtArea().setText(texto);		
+			
 			
 			
 		}
@@ -109,11 +105,6 @@ public class ControladorFunciones implements WindowListener, ActionListener, Hie
 
 	}
 
-	@Override
-	public void hierarchyChanged(HierarchyEvent e)
-	{
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }

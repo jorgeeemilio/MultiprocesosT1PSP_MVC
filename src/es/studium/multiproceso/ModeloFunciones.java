@@ -42,5 +42,21 @@ public class ModeloFunciones
 			return comand;
 			}
 		
+		public void ejecutarPrograma(String prog) {
+			try {
+				
+				Process proceso= Runtime.getRuntime().exec(prog);
+				
+				while(proceso.isAlive()) {
+					System.out.println("El proceso està activo");
+				}
+				System.out.println("Se cerró el "+prog+" correctamente");
+				
+			}catch(IOException e) {
+				
+				e.printStackTrace();
+				System.out.println("Error al intentar abrir el "+prog);
+			}
+		}
 		
 }

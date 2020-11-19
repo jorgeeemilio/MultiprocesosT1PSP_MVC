@@ -38,12 +38,7 @@ public class VistaInterfaz extends JFrame
 	private JScrollPane scrollPane_1;
 	private JTable table;
 	private JScrollPane scrollPane;
-	private JTextArea txtrTxtarea;
-	public void setTxtrTxtarea(JTextArea txtrTxtarea)
-	{
-		this.txtrTxtarea = txtrTxtarea;
-	}
-
+	private JTextArea txtArea;
 	private JButton btnTerminar;
 	private JButton btnEjecutar;
 	private static VistaInterfaz frame=null;
@@ -84,11 +79,13 @@ public class VistaInterfaz extends JFrame
 		setContentPane(contentPane);
 		
 		btnEjecutar = new JButton("Ejecutar");
+		add(btnEjecutar);
 		
 		textField = new JTextField();
 		textField.setForeground(Color.WHITE);
 		textField.setBackground(SystemColor.desktop);
 		textField.setColumns(10);
+		add(textField);
 		
 		JButton btnNewButton_1 = new JButton("Bloc de Notas");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -158,11 +155,11 @@ public class VistaInterfaz extends JFrame
 					.addContainerGap(19, Short.MAX_VALUE))
 		);
 		
-		txtrTxtarea = new JTextArea();
-		txtrTxtarea.setForeground(Color.WHITE);
-		txtrTxtarea.setBackground(new Color(0, 0, 205));
-		txtrTxtarea.setText("txtArea");
-		scrollPane.setViewportView(txtrTxtarea);
+		txtArea = new JTextArea();
+		txtArea.setForeground(Color.WHITE);
+		txtArea.setBackground(new Color(0, 0, 205));
+		txtArea.setText("");
+		scrollPane.setViewportView(txtArea);
 		
 		table = new JTable();
 		table.setBackground(Color.ORANGE);
@@ -200,64 +197,86 @@ public class VistaInterfaz extends JFrame
 		contentPane.setLayout(gl_contentPane);
 	}
 
-	public Component getScrollPane()
+	public JButton getBtnPaint()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return btnPaint;
 	}
 
-	public Component getScrollPane_1()
+	public void setBtnPaint(JButton btnPaint)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		this.btnPaint = btnPaint;
 	}
 
-	public Component getTable()
+	public JButton getBtnProgGestin()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return btnProgGestin;
 	}
 
-	public Component getTxtrTxtarea()
+	public void setBtnProgGestin(JButton btnProgGestin)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		this.btnProgGestin = btnProgGestin;
 	}
 
-	public AbstractButton getTextField()
+	public JButton getBtnJuegAjedrez()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return btnJuegAjedrez;
 	}
 
-	public AbstractButton getBtnPaint()
+	public void setBtnJuegAjedrez(JButton btnJuegAjedrez)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		this.btnJuegAjedrez = btnJuegAjedrez;
 	}
 
-	public AbstractButton getBtnProgGestin()
+	public JButton getBtnTerminar()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return btnTerminar;
 	}
 
-	public AbstractButton getBtnJuegAjedrez()
+	public void setBtnTerminar(JButton btnTerminar)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		this.btnTerminar = btnTerminar;
 	}
 
-	public AbstractButton getBtnTerminar()
+	public JButton getBtnEjecutar()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return btnEjecutar;
 	}
 
-	public AbstractButton getBtnEjecutar()
+	public void setBtnEjecutar(JButton btnEjecutar)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		this.btnEjecutar = btnEjecutar;
 	}
+
+	public JTextField getTextField()
+	{
+		return textField;
+	}
+
+	public void setTextField(JTextField textField)
+	{
+		this.textField = textField;
+	}
+
+	public JTextArea getTxtArea()
+	{
+		return txtArea;
+	}
+
+	public void setTxtArea(JTextArea txtArea)
+	{
+		this.txtArea = txtArea;
+	}
+
+	public JTable getTable()
+	{
+		return table;
+	}
+
+	public void setTable(JTable table)
+	{
+		this.table = table;
+	}
+	
+
 	
 }
