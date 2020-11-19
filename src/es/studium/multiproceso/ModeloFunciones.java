@@ -5,18 +5,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+
 public class ModeloFunciones
 {
-		String path = "c:\\users\\david.info\\";
+	
+		//String path = "c:\\users\\david.info\\";
 		public String lanzarComando(String comando) {
 			
 			String comand="";
-			String cmdExe = "cmd /c "+comando;
-			//String cmd = "cmd /c " + comando;
+			//String cmdExe = "cmd /c "+comando;
+			String cmd = "cmd /c " + comando;
 			try
 			{
 				
-				Process process = Runtime.getRuntime().exec(cmdExe);
+				Process process = Runtime.getRuntime().exec(cmd);
 				// Flujo de entrada(padre) para la salida estándar (hijo)
 				InputStream is = process.getInputStream();
 				// Flujo de lectura para esa entrada
@@ -40,14 +44,18 @@ public class ModeloFunciones
 			return comand;
 			}
 		
-		public void ejecutarPrograma(String prog) {
+		public void ejecutarPrograma(String prog, JButton btn ) {
+			
+			String cmd = "cmd /c start "+ prog;
 			try {
 				
-				Process proceso= Runtime.getRuntime().exec(prog);
+				Process proceso= Runtime.getRuntime().exec(cmd);
 				
 				while(proceso.isAlive()) {
 					System.out.println("El proceso està activo");
+					
 				}
+				btn.setEnabled(false);
 				System.out.println("Se cerró el "+prog+" correctamente");
 				
 			}catch(IOException e) {
@@ -55,6 +63,34 @@ public class ModeloFunciones
 				e.printStackTrace();
 				System.out.println("Error al intentar abrir el "+prog);
 			}
+		}
+		public long ejecutarJar(String programa, JButton btn) {
+			long pid = 0;
+			
+			String arg1 = "java";
+			String arg2 = "-jar";
+			String arg3 = "C:\\Users\\David.Info\\Documents\\GrupoStudium\\"+programa+".jar";
+			
+			//Creación de una array de cadenas texto
+			
+			String[] param = {arg1, arg2, arg3};
+			
+			//Instanciamos un proceso
+			
+			try
+			{
+				Process process = Runtime.getRuntime().exec(param);
+				
+				pid = process.pid();
+				
+				btn.setEnabled(false);
+			
+			} catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return pid;
 		}
 		
 }

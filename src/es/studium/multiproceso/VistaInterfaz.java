@@ -32,7 +32,7 @@ public class VistaInterfaz extends JFrame
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
-	
+	private JButton btnBloqNotas;
 	private JButton btnPaint;
 	private JButton btnProgGestin;
 	private JButton btnJuegAjedrez;
@@ -42,6 +42,7 @@ public class VistaInterfaz extends JFrame
 	private JTextArea txtArea;
 	private JButton btnTerminar;
 	private JButton btnEjecutar;
+	
 //	private static VistaInterfaz frame=null;
 
 	/**
@@ -87,12 +88,9 @@ public class VistaInterfaz extends JFrame
 		textField.setBackground(SystemColor.desktop);
 		textField.setColumns(10);
 		
+		//Instanciar los botones
 		
-		JButton btnNewButton_1 = new JButton("Bloc de Notas");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnBloqNotas = new JButton("Bloc de Notas");
 		
 		btnPaint = new JButton("Paint");
 				
@@ -100,11 +98,13 @@ public class VistaInterfaz extends JFrame
 		
 		btnJuegAjedrez = new JButton("Jueg. Ajedrez");
 		
+		btnTerminar = new JButton("Terminar");
+		
 		scrollPane_1 = new JScrollPane();
 		
 		scrollPane = new JScrollPane();
 		
-		btnTerminar = new JButton("Terminar");
+		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -116,7 +116,7 @@ public class VistaInterfaz extends JFrame
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 							.addGroup(gl_contentPane.createSequentialGroup()
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(btnBloqNotas, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addComponent(btnPaint, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addComponent(btnProgGestin, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addComponent(btnJuegAjedrez, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -140,7 +140,7 @@ public class VistaInterfaz extends JFrame
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGap(14)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(btnNewButton_1)
+										.addComponent(btnBloqNotas)
 										.addComponent(btnEjecutar)
 										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 									.addGap(35)
@@ -199,6 +199,19 @@ public class VistaInterfaz extends JFrame
 		contentPane.setLayout(gl_contentPane);
 		setVisible(true);
 	}
+	
+
+	public JButton getBtnBloqNotas()
+	{
+		return btnBloqNotas;
+	}
+
+
+	public void setBtnBloqNotas(JButton btnBloqNotas)
+	{
+		this.btnBloqNotas = btnBloqNotas;
+	}
+
 
 	public JButton getBtnPaint()
 	{
