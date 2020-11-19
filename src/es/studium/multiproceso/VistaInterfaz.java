@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.AbstractButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -39,6 +40,7 @@ public class VistaInterfaz extends JFrame
 	private JScrollPane scrollPane;
 	private JTextArea txtrTxtarea;
 	private JButton btnTerminar;
+	private JButton btnEjecutar;
 
 	/**
 	 * Launch the application.
@@ -73,7 +75,7 @@ public class VistaInterfaz extends JFrame
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("Ejecutar");
+		btnEjecutar = new JButton("Ejecutar");
 		
 		textField = new JTextField();
 		textField.setForeground(Color.WHITE);
@@ -112,7 +114,7 @@ public class VistaInterfaz extends JFrame
 									.addComponent(btnProgGestin, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addComponent(btnJuegAjedrez, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnNewButton))
+								.addComponent(btnEjecutar))
 							.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 227, GroupLayout.PREFERRED_SIZE)))
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
@@ -132,7 +134,7 @@ public class VistaInterfaz extends JFrame
 									.addGap(14)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(btnNewButton_1)
-										.addComponent(btnNewButton)
+										.addComponent(btnEjecutar)
 										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 									.addGap(35)
 									.addComponent(btnProgGestin)
@@ -189,4 +191,65 @@ public class VistaInterfaz extends JFrame
 		scrollPane_1.setViewportView(table);
 		contentPane.setLayout(gl_contentPane);
 	}
+
+	public Component getScrollPane()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Component getScrollPane_1()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Component getTable()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Component getTxtrTxtarea()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AbstractButton getTextField()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AbstractButton getBtnPaint()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AbstractButton getBtnProgGestin()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AbstractButton getBtnJuegAjedrez()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AbstractButton getBtnTerminar()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AbstractButton getBtnEjecutar()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
