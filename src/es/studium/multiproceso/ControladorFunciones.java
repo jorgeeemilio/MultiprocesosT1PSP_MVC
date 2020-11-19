@@ -34,7 +34,7 @@ public class ControladorFunciones implements WindowListener, ActionListener, Hie
 		vint.getTable().addHierarchyListener(this);
 		vint.getTxtrTxtarea().addHierarchyListener(this);
 		//Listeners de los objetos del interfaz
-		
+
 		vint.getTextField().addActionListener(this);
 		vint.getBtnPaint().addActionListener(this);
 		vint.getBtnProgGestin().addActionListener(this);
@@ -46,64 +46,74 @@ public class ControladorFunciones implements WindowListener, ActionListener, Hie
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// TODO Auto-generated method stub
+		Object focus;
+		focus = e.getSource();
 		
+		if (focus.equals(vint.getBtnEjecutar())) {
+			
+			//Lanzamos la función lanzarComando
+			
+			mfun.lanzarComando(vint.getTextField().toString());
+			
+			
+		}
+
 	}
 
 	@Override
 	public void windowOpened(WindowEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowClosing(WindowEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowClosed(WindowEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowIconified(WindowEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowDeiconified(WindowEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowActivated(WindowEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowDeactivated(WindowEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void hierarchyChanged(HierarchyEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

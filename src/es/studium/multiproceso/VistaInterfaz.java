@@ -39,13 +39,19 @@ public class VistaInterfaz extends JFrame
 	private JTable table;
 	private JScrollPane scrollPane;
 	private JTextArea txtrTxtarea;
+	public void setTxtrTxtarea(JTextArea txtrTxtarea)
+	{
+		this.txtrTxtarea = txtrTxtarea;
+	}
+
 	private JButton btnTerminar;
 	private JButton btnEjecutar;
+	private static VistaInterfaz frame=null;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args)
+	public void main(String[] args)
 	{
 		EventQueue.invokeLater(new Runnable()
 		{
@@ -53,11 +59,13 @@ public class VistaInterfaz extends JFrame
 			{
 				try
 				{
-					VistaInterfaz frame = new VistaInterfaz();
+					frame = new VistaInterfaz();
 					frame.setVisible(true);
 				} catch (Exception e)
 				{
+					
 					e.printStackTrace();
+					System.err.println("entra en el catch de la excepcion :(");
 				}
 			}
 		});
