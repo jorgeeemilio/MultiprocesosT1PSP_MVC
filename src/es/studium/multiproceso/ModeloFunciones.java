@@ -105,7 +105,7 @@ public class ModeloFunciones
 			{
 				
 				Runtime.getRuntime().exec("cmd /c taskkill /f /pid "+pid );
-				Thread.sleep(90);
+				
 				
 			} catch (IOException e)
 			{
@@ -120,7 +120,7 @@ public class ModeloFunciones
 			try
 			{
 				Runtime.getRuntime().exec("cmd /c taskkill /f /im "+proceso+".exe");
-				Thread.sleep(90);
+				
 			} catch (IOException e)
 			{
 				// TODO Auto-generated catch block

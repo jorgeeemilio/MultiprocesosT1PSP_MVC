@@ -115,14 +115,13 @@ public class ControladorFunciones implements WindowListener, ActionListener
 
 		}else if (pulsar.equals(vint.getBtnTerminar())) {
 
-			nRow = vint.table.getSelectedRow();
+			nRow =(vint.table.getSelectedRow());
 			System.out.println(nRow);
 			check = vint.table.getValueAt(nRow, 0).toString();
 			System.out.println(check);
 			if (check == "Bloc de Notas") {
 				try
 				{
-					System.out.println(check);
 					mfun.pararProceso(prog1);
 					
 				} catch (InterruptedException e1)
@@ -165,9 +164,10 @@ public class ControladorFunciones implements WindowListener, ActionListener
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				vint.defTable.removeRow(vint.table.getSelectedRow());
+				vint.getBtnJuegAjedrez().setEnabled(true);
 			}
-			vint.defTable.removeRow(vint.table.getSelectedRow());
-			vint.getBtnJuegAjedrez().setEnabled(true);
+			
 //			if (vint.table.getSelectedRow() == 0 ) {
 //
 //				if (prog1.equals(prog1)) {
