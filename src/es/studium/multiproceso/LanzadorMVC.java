@@ -8,7 +8,6 @@ public class LanzadorMVC
 		
 		VistaInterfaz vint = new VistaInterfaz();
 		ModeloFunciones mfun = new ModeloFunciones();
-		//vint.main(null);
 		new ControladorFunciones(vint, mfun);
 		
 	}
