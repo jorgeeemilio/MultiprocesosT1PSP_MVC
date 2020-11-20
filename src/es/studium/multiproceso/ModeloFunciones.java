@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+
 
 public class ModeloFunciones
 {
@@ -94,7 +97,9 @@ public class ModeloFunciones
 			
 			return pid;
 		}
-//		public void rellenarTable(JTable vint, float pid, String proceso, String [][] datos, String [] cabecera) {
-//			vint = new JTable(datos, cabecera);
-//		}
+		public void rellenarTable(JTable vint, float pid, String proceso, String [][] datos, String [] cabecera) {
+			DefaultTableModel contenido = new DefaultTableModel();
+			vint = new JTable(datos, cabecera);
+			
+		}
 }

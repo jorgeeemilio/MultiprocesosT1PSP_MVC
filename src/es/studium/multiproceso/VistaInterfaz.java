@@ -42,7 +42,9 @@ public class VistaInterfaz extends JFrame
 	private JTextArea txtArea;
 	private JButton btnTerminar;
 	private JButton btnEjecutar;
-	
+	public Object[][] info;
+	public String [] cabecera;
+	public DefaultTableModel defTable;
 //	private static VistaInterfaz frame=null;
 
 	/**
@@ -165,8 +167,8 @@ public class VistaInterfaz extends JFrame
 		
 		table = new JTable();
 		table.setBackground(Color.ORANGE);
-		table.setModel(new DefaultTableModel(
-				new Object[][] {
+		table.setModel(defTable = new DefaultTableModel(
+				info = new Object[][]  {
 					{}
 //					{null, null},
 //					{null, null},
@@ -179,7 +181,7 @@ public class VistaInterfaz extends JFrame
 //					{null, null},
 //					{null, null},
 				},
-				new String[] {
+				cabecera = new String[] {
 					"PID ", "Procesos Activos"
 				}
 			)
@@ -314,6 +316,42 @@ public class VistaInterfaz extends JFrame
 	public void setScrollPane(JScrollPane scrollPane)
 	{
 		this.scrollPane = scrollPane;
+	}
+
+
+	public Object[][] getInfo()
+	{
+		return info;
+	}
+
+
+	public void setInfo(Object[][] info)
+	{
+		this.info = info;
+	}
+
+
+	public String[] getCabecera()
+	{
+		return cabecera;
+	}
+
+
+	public void setCabecera(String[] cabecera)
+	{
+		this.cabecera = cabecera;
+	}
+
+
+	public DefaultTableModel getDefTable()
+	{
+		return defTable;
+	}
+
+
+	public void setDefTable(DefaultTableModel defTable)
+	{
+		this.defTable = defTable;
 	}
 	
 

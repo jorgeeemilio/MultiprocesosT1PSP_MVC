@@ -68,12 +68,20 @@ public class ControladorFunciones implements WindowListener, ActionListener
 		}else if (pulsar.equals(vint.getBtnProgGestin())) {
 			long pid = 0L;	
 			pid = mfun.ejecutarJar("gestion", vint.getBtnProgGestin(), vint);
-			
+			String txt = ""+pid;
 			int numero = vint.getTable().getRowCount();
 			
 			
-					
-						
+			
+			vint.defTable.addRow(new Object[] {"Programa de Gestión"});
+			
+			
+			
+			
+			
+			
+			
+			
 			System.out.println(pid+"numero lineas = "+ numero);
 
 		}else if (pulsar.equals(vint.getBtnJuegAjedrez())) {
