@@ -17,10 +17,20 @@ public class ControladorFunciones implements WindowListener, ActionListener
 	VistaInterfaz vint = null;
 	ModeloFunciones mfun = null;
 
+	public long pidGestion = 0L;
+	public long pidJuego = 0L;
+	public long pidNotas = 0L;
+	public long pidPaint = 0L;
+	public String prog1 ="";
+	public String prog2 ="";
+	public String prog3 ="";
+	public String prog4 ="";
+
 	public ControladorFunciones(VistaInterfaz vint, ModeloFunciones mfun)
 	{
 		this.vint = vint;
 		this.mfun = mfun;
+
 
 		//Escuchador de la ventana VistaInterfaz
 		vint.addWindowListener(this);
@@ -37,20 +47,21 @@ public class ControladorFunciones implements WindowListener, ActionListener
 		vint.getBtnEjecutar().addActionListener(this);
 		vint.getTextField().addActionListener(this);
 
-	
+
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		long pidGestion = 0L;
-		long pidJuego = 0L;
+
 		Object pulsar = e.getSource();
+
+		int numTabla = vint.table.getSelectedRow(); 
 
 		if (pulsar.equals(vint.getBtnEjecutar())) {
 
-			System.out.println("hola");
+
 			System.out.println(vint.getTextField().getText().toString());
 
 			String comando = vint.getTextField().getText().toString();
@@ -59,45 +70,81 @@ public class ControladorFunciones implements WindowListener, ActionListener
 			vint.getTxtArea().setText(texto);				
 		}else if (pulsar.equals(vint.getBtnBloqNotas())) {
 
-			mfun.ejecutarPrograma("notepad.exe", vint.getBtnBloqNotas());
-			
+			pidNotas = mfun.ejecutarPrograma("notepad.exe", vint.getBtnBloqNotas());
+
 			vint.defTable.addRow(new Object[] {"Bloc de Notas"});
+
+			prog1 = "notepad";
 		}else if (pulsar.equals(vint.getBtnPaint())) {
-			
-			
-			mfun.ejecutarPrograma("mspaint.exe", vint.getBtnPaint());
-			
+
+
+			pidPaint = mfun.ejecutarPrograma("mspaint.exe", vint.getBtnPaint());
+
 			vint.defTable.addRow(new Object[] {"Editor Paint"});		
 
+			prog2 = "mspaint";
+
 		}else if (pulsar.equals(vint.getBtnProgGestin())) {
-				
+
+
 			pidGestion = mfun.ejecutarJar("gestion", vint.getBtnProgGestin(), vint);
-			
-			int numero = vint.getTable().getRowCount();
-						
-			
+
+
 			vint.defTable.addRow(new Object[] {"Programa de Gestión"});
-						
-			System.out.println(pidGestion+"numero lineas = "+ numero);
+
+			prog3 = "Programa de Gestión";
+
+			System.out.println(pidGestion);
+
 
 		}else if (pulsar.equals(vint.getBtnJuegAjedrez())) {
-				
+
 			pidJuego = mfun.ejecutarJar("Juego", vint.getBtnJuegAjedrez(),vint);
-			
+
 			vint.defTable.addRow(new Object[] {"Juego de Ajedrez"});
-			
-			System.out.println(pidJuego);
+
+			int numProg4 = vint.defTable.getColumnCount();
+			prog4 = "Juego de Ajedrez";
+
+			System.out.println(pidJuego+"--> "+numProg4);
+
+
 
 		}else if (pulsar.equals(vint.getBtnTerminar())) {
-			
-			 
-			
-			
-			if (vint.table.getSelectedRow() == 0) {
-				
-				
+
+			if (vint.table.getSelectedRow() == 0 ) {
+
+				mfun.pararProceso(prog1);
 				vint.getBtnBloqNotas().setEnabled(true);
-				vint.defTable.removeRow(0);
+				vint.defTable.removeRow(vint.table.getSelectedRow());
+
+			}else if (vint.table.getSelectedRow() == 1) {
+
+				mfun.pararProceso(prog2);
+				vint.getBtnBloqNotas().setEnabled(true);
+				vint.defTable.removeRow(vint.table.getSelectedRow());
+			}else if (vint.table.getSelectedRow() == 2) {
+
+				try
+				{
+					mfun.pararProcesoJava(pidGestion);
+				} catch (InterruptedException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				vint.defTable.removeRow(vint.table.getSelectedRow());
+			}else if (vint.table.getSelectedRow() == 3) {
+
+				try
+				{
+					mfun.pararProcesoJava(pidJuego);
+				} catch (InterruptedException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				vint.defTable.removeRow(vint.table.getSelectedRow());
 			}
 			vint.getBtnPaint().setEnabled(true);
 			vint.getBtnProgGestin().setEnabled(true);

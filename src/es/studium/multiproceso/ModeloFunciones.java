@@ -47,13 +47,14 @@ public class ModeloFunciones
 			return comand;
 			}
 		
-		public void ejecutarPrograma(String prog, JButton btn ) {
+		public long ejecutarPrograma(String prog, JButton btn ) {
 			
+			long pid = 0L;
 			String cmd = "cmd /c start "+ prog;
 			try {
 				
 				Process proceso= Runtime.getRuntime().exec(cmd);
-				
+				pid = proceso.pid();
 				while(proceso.isAlive()) {
 					System.out.println("El proceso està activo");
 					
@@ -66,6 +67,7 @@ public class ModeloFunciones
 				e.printStackTrace();
 				System.out.println("Error al intentar abrir el "+prog);
 			}
+			return pid;
 		}
 		public long ejecutarJar(String programa, JButton btn , VistaInterfaz vista) {
 			long pid = 0;
@@ -97,7 +99,30 @@ public class ModeloFunciones
 			
 			return pid;
 		}
-		public void pararProceso() {
+		public void pararProcesoJava(long pid) throws InterruptedException {
 			
+			try
+			{
+				
+				Runtime.getRuntime().exec("cmd /c taskkill /f /pid "+pid );
+				Thread.sleep(90);
+				
+			} catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		public void pararProceso(String proceso) {
+			
+			try
+			{
+				Runtime.getRuntime().exec("cmd /c taskkill /f /im "+proceso+".exe");
+			} catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 }
