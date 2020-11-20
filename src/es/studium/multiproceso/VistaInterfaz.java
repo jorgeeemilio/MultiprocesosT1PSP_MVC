@@ -37,7 +37,7 @@ public class VistaInterfaz extends JFrame
 	private JButton btnProgGestin;
 	private JButton btnJuegAjedrez;
 	private JScrollPane scrollPane_1;
-	private JTable table;
+	public JTable table;
 	private JScrollPane scrollPane;
 	private JTextArea txtArea;
 	private JButton btnTerminar;
@@ -166,22 +166,25 @@ public class VistaInterfaz extends JFrame
 		table = new JTable();
 		table.setBackground(Color.ORANGE);
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"PID ", "Procesos Activos"
-			}
-		) {
+				new Object[][] {
+					{}
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+				},
+				new String[] {
+					"PID ", "Procesos Activos"
+				}
+			)
+		
+		{
 			/**
 			 * 
 			 */

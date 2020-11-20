@@ -64,7 +64,7 @@ public class ModeloFunciones
 				System.out.println("Error al intentar abrir el "+prog);
 			}
 		}
-		public long ejecutarJar(String programa, JButton btn) {
+		public long ejecutarJar(String programa, JButton btn , VistaInterfaz vista) {
 			long pid = 0;
 			
 			String arg1 = "java";
@@ -90,7 +90,11 @@ public class ModeloFunciones
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
 			return pid;
 		}
-		
+//		public void rellenarTable(JTable vint, float pid, String proceso, String [][] datos, String [] cabecera) {
+//			vint = new JTable(datos, cabecera);
+//		}
 }
