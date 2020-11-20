@@ -56,11 +56,11 @@ public class ModeloFunciones
 				Process proceso= Runtime.getRuntime().exec(cmd);
 				pid = proceso.pid();
 				while(proceso.isAlive()) {
-					System.out.println("El proceso està activo");
+//					System.out.println("El proceso està activo");
 					
 				}
 				btn.setEnabled(false);
-				System.out.println("Se cerró el "+prog+" correctamente");
+//				System.out.println("Se cerró el "+prog+" correctamente");
 				
 			}catch(IOException e) {
 				
