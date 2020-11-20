@@ -114,11 +114,13 @@ public class ModeloFunciones
 			}
 			
 		}
-		public void pararProceso(String proceso) {
+		public void pararProceso(String proceso) throws InterruptedException {
+			
 			
 			try
 			{
 				Runtime.getRuntime().exec("cmd /c taskkill /f /im "+proceso+".exe");
+				Thread.sleep(90);
 			} catch (IOException e)
 			{
 				// TODO Auto-generated catch block

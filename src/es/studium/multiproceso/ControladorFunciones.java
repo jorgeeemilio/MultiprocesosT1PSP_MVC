@@ -114,13 +114,39 @@ public class ControladorFunciones implements WindowListener, ActionListener
 
 			if (vint.table.getSelectedRow() == 0 ) {
 
-				mfun.pararProceso(prog1);
-				vint.getBtnBloqNotas().setEnabled(true);
+				if (prog1.equals(prog1)) {
+					try
+					{
+						mfun.pararProceso(prog1);
+					} catch (InterruptedException e1)
+					{
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					vint.getBtnBloqNotas().setEnabled(true);
+				}else if (prog2.equals(prog2)){
+					try
+					{
+						mfun.pararProceso(prog2);
+					} catch (InterruptedException e1)
+					{
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					vint.getBtnBloqNotas().setEnabled(true);
+				}
 				vint.defTable.removeRow(vint.table.getSelectedRow());
 
 			}else if (vint.table.getSelectedRow() == 1) {
 
-				mfun.pararProceso(prog2);
+				try
+				{
+					mfun.pararProceso(prog2);
+				} catch (InterruptedException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				vint.getBtnBloqNotas().setEnabled(true);
 				vint.defTable.removeRow(vint.table.getSelectedRow());
 			}else if (vint.table.getSelectedRow() == 2) {
