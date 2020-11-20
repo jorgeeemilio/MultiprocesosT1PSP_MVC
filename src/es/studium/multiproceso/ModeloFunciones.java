@@ -97,9 +97,7 @@ public class ModeloFunciones
 			
 			return pid;
 		}
-		public void rellenarTable(JTable vint, float pid, String proceso, String [][] datos, String [] cabecera) {
-			DefaultTableModel contenido = new DefaultTableModel();
-			vint = new JTable(datos, cabecera);
+		public void pararProceso() {
 			
 		}
 }

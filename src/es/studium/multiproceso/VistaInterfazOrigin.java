@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.AbstractButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -22,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
 import java.awt.SystemColor;
 
-public class VistaInterfaz extends JFrame
+public class VistaInterfazOrigin extends JFrame
 {
 
 	/**
@@ -44,11 +45,12 @@ public class VistaInterfaz extends JFrame
 	public Object[][] info;
 	public String [] cabecera;
 	public DefaultTableModel defTable;
+//	private static VistaInterfaz frame=null;
 
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args)
+//	public void main(String[] args)
 //	{
 //		EventQueue.invokeLater(new Runnable()
 //		{
@@ -56,11 +58,13 @@ public class VistaInterfaz extends JFrame
 //			{
 //				try
 //				{
-//					Interfaz frame = new Interfaz();
+//					frame = new VistaInterfaz();
 //					frame.setVisible(true);
 //				} catch (Exception e)
 //				{
+//					
 //					e.printStackTrace();
+//					System.err.println("entra en el catch de la excepcion :(");
 //				}
 //			}
 //		});
@@ -69,7 +73,7 @@ public class VistaInterfaz extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public VistaInterfaz()
+	public VistaInterfazOrigin()
 	{
 		setTitle("Pr\u00E1ctica PSP Tema 1");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,6 +82,7 @@ public class VistaInterfaz extends JFrame
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+		btnEjecutar = new JButton("Ejecutar");
 		
 		
 		textField = new JTextField();
@@ -87,12 +92,10 @@ public class VistaInterfaz extends JFrame
 		
 		//Instanciar los botones
 		
-		btnEjecutar = new JButton("Ejecutar");
-		
 		btnBloqNotas = new JButton("Bloc de Notas");
 		
 		btnPaint = new JButton("Paint");
-		
+				
 		btnProgGestin = new JButton("Prog. Gesti\u00F3n");
 		
 		btnJuegAjedrez = new JButton("Jueg. Ajedrez");
@@ -102,6 +105,7 @@ public class VistaInterfaz extends JFrame
 		scrollPane_1 = new JScrollPane();
 		
 		scrollPane = new JScrollPane();
+		
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -164,29 +168,45 @@ public class VistaInterfaz extends JFrame
 		table = new JTable();
 		table.setBackground(Color.ORANGE);
 		table.setModel(defTable = new DefaultTableModel(
-				info = new Object[][] {
-					
-			},
-						cabecera = new String[] {
-				"Procesos Activos"
-			}
-		) {
+				info = new Object[][]  {
+					{}
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+//					{null, null},
+				},
+				cabecera = new String[] {
+					"PID", "Procesos Activos"
+				}
+			)
+		
+		{
 			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
 			boolean[] columnEditables = new boolean[] {
-				false
+				false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(167);
+		
+		table.getColumnModel().getColumn(1).setPreferredWidth(44);
+		table.getColumnModel().getColumn(1).setPreferredWidth(167);
 		scrollPane_1.setViewportView(table);
 		contentPane.setLayout(gl_contentPane);
 		setVisible(true);
 	}
+	
+
 	public JButton getBtnBloqNotas()
 	{
 		return btnBloqNotas;

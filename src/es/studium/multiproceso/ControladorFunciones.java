@@ -44,7 +44,8 @@ public class ControladorFunciones implements WindowListener, ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-
+		long pidGestion = 0L;
+		long pidJuego = 0L;
 		Object pulsar = e.getSource();
 
 		if (pulsar.equals(vint.getBtnEjecutar())) {
@@ -59,41 +60,45 @@ public class ControladorFunciones implements WindowListener, ActionListener
 		}else if (pulsar.equals(vint.getBtnBloqNotas())) {
 
 			mfun.ejecutarPrograma("notepad.exe", vint.getBtnBloqNotas());
+			
+			vint.defTable.addRow(new Object[] {"Bloc de Notas"});
 		}else if (pulsar.equals(vint.getBtnPaint())) {
-			float pid = 0L;
+			
+			
 			mfun.ejecutarPrograma("mspaint.exe", vint.getBtnPaint());
 			
-					
+			vint.defTable.addRow(new Object[] {"Editor Paint"});		
 
 		}else if (pulsar.equals(vint.getBtnProgGestin())) {
-			long pid = 0L;	
-			pid = mfun.ejecutarJar("gestion", vint.getBtnProgGestin(), vint);
-			String txt = ""+pid;
+				
+			pidGestion = mfun.ejecutarJar("gestion", vint.getBtnProgGestin(), vint);
+			
 			int numero = vint.getTable().getRowCount();
-			
-			
+						
 			
 			vint.defTable.addRow(new Object[] {"Programa de Gestión"});
-			
-			
-			
-			
-			
-			
-			
-			
-			System.out.println(pid+"numero lineas = "+ numero);
+						
+			System.out.println(pidGestion+"numero lineas = "+ numero);
 
 		}else if (pulsar.equals(vint.getBtnJuegAjedrez())) {
-			long pid = 0L;	
-			pid = mfun.ejecutarJar("Juego", vint.getBtnJuegAjedrez(),vint);
+				
+			pidJuego = mfun.ejecutarJar("Juego", vint.getBtnJuegAjedrez(),vint);
 			
+			vint.defTable.addRow(new Object[] {"Juego de Ajedrez"});
 			
-			System.out.println(pid);
+			System.out.println(pidJuego);
 
 		}else if (pulsar.equals(vint.getBtnTerminar())) {
 			
-			vint.getBtnBloqNotas().setEnabled(true);
+			 
+			
+			
+			if (vint.table.getSelectedRow() == 0) {
+				
+				
+				vint.getBtnBloqNotas().setEnabled(true);
+				vint.defTable.removeRow(0);
+			}
 			vint.getBtnPaint().setEnabled(true);
 			vint.getBtnProgGestin().setEnabled(true);
 			vint.getBtnJuegAjedrez().setEnabled(true);
